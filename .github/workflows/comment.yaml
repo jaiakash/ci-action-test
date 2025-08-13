@@ -4,6 +4,10 @@ on:
   issue_comment:
     types: [created]
 
+permissions:
+  pull-requests: read
+  statuses: write
+
 jobs:
   deploy:
     name: Deploy
@@ -12,7 +16,7 @@ jobs:
 
     steps:
       - name: Get PR branch
-        uses: xt0rted/pull-request-comment-branch@v1
+        uses: xt0rted/pull-request-comment-branch@v3
         id: comment-branch
 
       - name: Set latest commit status as pending
